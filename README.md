@@ -23,7 +23,49 @@ Nothing much at the moment :lmao: but here's our *partial* list:
 
 ## I want to contribute! (or build my own, similar to *sebatibot*)
 ### How to install?
+```
+# Install glide, Golang dependency manager
+brew install glide
+
+# Clone the project
+git clone https://github.com/kbleabres/sebatibot.git
+
+cd sebatibot
+
+# Install all dependencies in project vendor folder.
+glide install
+
+```
 ### How to run?
+```
+# Build the application and creates a binary sebatibot
+go build
+
+# Run the API server
+GO_ENV_PORT=8000 ./sebatibot
+
+```
+
+OR Run the following docker commands
+```
+cd sebatibot
+
+# Build the docker image
+docker build -t sebatibot .
+
+# Run the API in a container.
+docker run -p 8000:8000 sebatibot
+```
+### Check the API output
+```
+curl http://localhost:8000/v1/users/1
+```
+Expected Output:
+```
+{"ID":0,"CreatedAt":"0001-01-01T00:00:00Z","UpdatedAt":"0001-01-01T00:00:00Z","DeletedAt":null,"age":35,"first_name":"bruce","last_name":"wayne"}
+```
+
+Special thanks to our reference [boilerplate](https://github.com/sjoshi6/go-rest-api-boilerplate).
 ### How to contribute?
 ### How to deploy?
 

@@ -1,0 +1,6 @@
+package: github.com/kbleabres/sebatibot
+import:
+- package: github.com/urfave/negroni
+  version: v0.2.0
+- package: github.com/jinzhu/gorm
+  version: v1.0

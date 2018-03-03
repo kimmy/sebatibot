@@ -1,4 +1,4 @@
-package: github.com/kbleabres/sebatibot
+package: sebatibot
 import:
 - package: github.com/urfave/negroni
   version: v0.2.0

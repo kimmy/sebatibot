@@ -1,6 +1,6 @@
 package routes
 
-import "github.com/kbleabres/sebatibot/controllers"
+import "sebatibot/controllers"
 
 // UsersRoutes contains all urls related to User Resource.
 var UsersRoutes = Routes{

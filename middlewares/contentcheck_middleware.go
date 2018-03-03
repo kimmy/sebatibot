@@ -3,7 +3,7 @@ package middlewares
 import (
 	"net/http"
 
-	"github.com/kbleabres/sebatibot/logger"
+	"sebatibot/logger"
 )
 
 var validContentTypes = []string{"application/json"}

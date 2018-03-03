@@ -6,8 +6,8 @@ import (
 	"os"
 
 	"github.com/markbates/going/defaults"
-	"github.com/kbleabres/sebatibot/app"
-	"github.com/kbleabres/sebatibot/logger"
+	"sebatibot/app"
+	"sebatibot/logger"
 )
 
 func main() {

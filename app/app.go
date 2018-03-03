@@ -3,8 +3,8 @@ package app
 import (
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
-	"github.com/kbleabres/sebatibot/middlewares"
-	"github.com/kbleabres/sebatibot/routes"
+	"sebatibot/middlewares"
+	"sebatibot/routes"
 	"github.com/urfave/negroni"
 )
 

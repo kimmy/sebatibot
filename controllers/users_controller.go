@@ -6,8 +6,8 @@ import (
 
 	"github.com/Sirupsen/logrus"
 
-	"github.com/kbleabres/sebatibot/logger"
-	"github.com/kbleabres/sebatibot/models"
+	"sebatibot/logger"
+	"sebatibot/models"
 )
 
 var log *logrus.Logger

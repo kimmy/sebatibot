@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/kbleabres/sebatibot/logger"
+	"sebatibot/logger"
 	"github.com/urfave/negroni"
 )
 

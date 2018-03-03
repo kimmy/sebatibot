@@ -28,6 +28,7 @@ Nothing much at the moment :lmao: but here's our *partial* list:
 brew install glide
 
 # Clone the project
+cd $GOPATH/src
 git clone https://github.com/kbleabres/sebatibot.git
 
 cd sebatibot

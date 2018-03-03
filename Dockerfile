@@ -1,9 +1,9 @@
 FROM golang
 
-ADD . /go/src/github.com/kbleabres/sebatibot
+ADD . /go/src/sebatibot
 
 RUN go get -u github.com/Masterminds/glide
-WORKDIR /go/src/github.com/kbleabres/sebatibot
+WORKDIR /go/src/sebatibot
 
 RUN glide install
 RUN go install

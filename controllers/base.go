@@ -9,4 +9,5 @@ type BaseController interface {
 	Post(w http.ResponseWriter, r *http.Request)
 	Put(w http.ResponseWriter, r *http.Request)
 	Delete(w http.ResponseWriter, r *http.Request)
+  PostTelegramUpdate(w http.ResponseWriter, r *http.Request)
 }

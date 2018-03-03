@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 hash: b69b855733ac6794352c0c0a2bcea1e9ff33e24d78ae100bbbd515d45fe2aec3
 updated: 2018-03-03T19:58:24.274376418+08:00
+=======
+hash: 5a83bcf62022121234312dde0b12b034654d47357a7b33db4079975ff9eb6627
+updated: 2018-03-03T19:52:08.129849795+09:00
+>>>>>>> Setup webhook for local (ngrok)
 imports:
+- name: github.com/go-telegram-bot-api/telegram-bot-api
+  version: 2022d04b94f50056a09962b1ac81cdd821d20a55
 - name: github.com/gorilla/context
   version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
 - name: github.com/gorilla/mux
@@ -21,6 +28,8 @@ imports:
   version: d9d9599b6aaf6a058cb7b1f48291ded2cbd13390
 - name: github.com/Sirupsen/logrus
   version: ba1b36c82c5e05c4f912a88eab0dcd91a171688f
+- name: github.com/technoweenie/multipartstreamer
+  version: a90a01d73ae432e2611d178c18367fbaa13e0154
 - name: github.com/urfave/negroni
   version: fde5e16d32adc7ad637e9cd9ad21d4ebc6192535
 - name: golang.org/x/net

@@ -22,4 +22,10 @@ var UsersRoutes = Routes{
 		Method:      "POST",
 		HandlerFunc: (&controllers.UsersController{}).Post,
 	},
+	Route{
+		Name:        "PostTelegramUpdate",
+		Pattern:     "/551123175:AAGsVKDZTiQ4Bz4WBHSgP43r7nzATeCAn3U",
+		Method:      "POST",
+		HandlerFunc: (&controllers.TelegramController{}).Post,
+	},
 }

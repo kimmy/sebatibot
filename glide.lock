@@ -1,5 +1,5 @@
 hash: b69b855733ac6794352c0c0a2bcea1e9ff33e24d78ae100bbbd515d45fe2aec3
-updated: 2018-03-03T17:21:46.307011206+08:00
+updated: 2018-03-03T19:58:24.274376418+08:00
 imports:
 - name: github.com/gorilla/context
   version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
@@ -9,6 +9,8 @@ imports:
   version: 5174cc5c242a728b435ea2be8a2f7f998e15429b
 - name: github.com/jinzhu/inflection
   version: 1c35d901db3da928c72a72d8458480cc9ade058f
+- name: github.com/joho/godotenv
+  version: a79fa1e548e2c689c241d10173efd51e5d689d5b
 - name: github.com/markbates/going
   version: 0576708c56cea02331f864fe6e157ac7841923e4
   subpackages:

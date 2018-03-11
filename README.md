@@ -46,16 +46,9 @@ $ glide install
 ```
 
 ### How to run?
-Build the application to create a binary sebatibot
-
+Run the application
 ```
-$ go build
-```
-
-Run the API server
-
-```
-$ GO_ENV_PORT=8000 ./sebatibot
+$ go run main.go
 ```
 
 OR Run the following docker commands
@@ -65,18 +58,32 @@ OR Run the following docker commands
 $ docker build -t sebatibot .
 
 # Run the API in a container.
-$ docker run -p 8000:8000 sebatibot
+$ docker run -p 3000:3000 sebatibot
 ```
 
-### Check the API output
+### Check the site
 ```
-$ curl http://localhost:8000/v1/users/1
+$ curl http://localhost:3000
 ```
 Expected Output:
 
 ```
-{"ID":0,"CreatedAt":"0001-01-01T00:00:00Z","UpdatedAt":"0001-01-01T00:00:00Z","DeletedAt":null,"age":35,"first_name":"bruce","last_name":"wayne"}
+Welcome!
 ```
+
+### Setup webhook for local env
+Download ngrok [here](https://ngrok.com/download).
+Move ngrok to sebatibot folder.
+Execute ngrok to generate public URL.
+```
+$ ./ngrok http 3000
+```
+Copy URL to main.go on this line:
+```
+webhookUrl := "https://38e44fc0.ngrok.io/" + os.Getenv("TOKEN")
+```
+Update your .env with the appropriate TOKEN.
+Run main.go and send a message to Sebatibot on Telegram.
 
 Special thanks to our reference [boilerplate](https://github.com/sjoshi6/go-rest-api-boilerplate).
 

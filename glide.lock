@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 hash: b69b855733ac6794352c0c0a2bcea1e9ff33e24d78ae100bbbd515d45fe2aec3
 updated: 2018-03-03T19:58:24.274376418+08:00
-=======
-hash: 5a83bcf62022121234312dde0b12b034654d47357a7b33db4079975ff9eb6627
-updated: 2018-03-03T19:52:08.129849795+09:00
->>>>>>> Setup webhook for local (ngrok)
 imports:
 - name: github.com/go-telegram-bot-api/telegram-bot-api
   version: 2022d04b94f50056a09962b1ac81cdd821d20a55

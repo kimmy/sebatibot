@@ -1,10 +1,10 @@
 package logger
 
 import (
-	"os"
+  "os"
 
-	"github.com/Sirupsen/logrus"
-	"github.com/markbates/going/defaults"
+  "github.com/Sirupsen/logrus"
+  "github.com/markbates/going/defaults"
 )
 
 var logger *logrus.Logger
@@ -12,19 +12,19 @@ var logger *logrus.Logger
 // GetLogger is used to return a singleton object of the logrus logger
 func GetLogger() *logrus.Logger {
 
-	if logger == nil {
-		logger = logrus.New()
-		var ENV = defaults.String(os.Getenv("GO_EUN_ENV"), "development")
+  if logger == nil {
+    logger = logrus.New()
+    var ENV = defaults.String(os.Getenv("GO_EUN_ENV"), "development")
 
-		logger.Out = os.Stdout
-		logger.Formatter = &logrus.TextFormatter{}
+    logger.Out = os.Stdout
+    logger.Formatter = &logrus.TextFormatter{}
 
-		if ENV == "development" {
-			logger.Level = logrus.DebugLevel
-		} else {
-			logger.Level = logrus.InfoLevel
-		}
-	}
+    if ENV == "development" {
+      logger.Level = logrus.DebugLevel
+    } else {
+      logger.Level = logrus.InfoLevel
+    }
+  }
 
-	return logger
+  return logger
 }

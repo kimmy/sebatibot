@@ -23,11 +23,10 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
-	log.Debugf("TOKEN: %s", os.Getenv("TOKEN"))
+	telegramToken := os.Getenv("TOKEN")
+	log.Debugf("TOKEN: %s", telegramToken)
 
-
-	// Initializing Telegram Bot . . .
-	bot, err := tgbotapi.NewBotAPI(os.Getenv("TOKEN"))
+	bot, err := tgbotapi.NewBotAPI(telegramToken)
 	if err != nil {
 		log.Fatal("Error initializing tgbotapi")
 	}
@@ -35,19 +34,19 @@ func main() {
 	bot.Debug = true
 	log.Debugf("Authorized on account %s", bot.Self.UserName)
 
-  // ngrok for local development
-  // Run ngrok on your local and change webhookUrl by the generated one
-  // Consule README.md for more details
+	// ngrok for local development
+	// Run ngrok on your local and change webhookUrl by the generated one
+	// Consult README.md for more details
 
-  // webhookUrl := "https://{production_api_endpoint}/" + os.Getenv("TOKEN")
-	webhookUrl := "https://38e44fc0.ngrok.io/" + os.Getenv("TOKEN")
+	// webhookUrl := "https://{production_api_endpoint}/" + os.Getenv("TOKEN")
+	webhookUrl := "https://38e44fc0.ngrok.io/" + telegramToken
 
 	_, err = bot.SetWebhook(tgbotapi.NewWebhook(webhookUrl))
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	updates := bot.ListenForWebhook("/" + os.Getenv("TOKEN"))
+	updates := bot.ListenForWebhook("/" + telegramToken)
 
 	log.Debugf("Listening at 127.0.0.1:3000 for Telegram updates. . .")
 	go http.ListenAndServe("127.0.0.1:3000", app)

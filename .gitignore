@@ -26,7 +26,6 @@ vendor
 logs
 *.log
 *DS_Store
-*.env
 
 # BIN file
 sebatibot

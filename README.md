@@ -21,7 +21,7 @@ Nothing much at the moment :lmao: but here's our *partial* list:
 
   > hello!
 
-## I want to contribute! (or build my own, similar to *sebatibot*)
+## I want to run this locally! (or build my own, similar to *sebatibot*)
 ### How to install?
 
 Install `glide`, Golang dependency manager
@@ -88,6 +88,8 @@ Run main.go and send a message to Sebatibot on Telegram.
 Special thanks to our reference [boilerplate](https://github.com/sjoshi6/go-rest-api-boilerplate).
 
 ### How to contribute?
+
+
 ### How to deploy?
 
 ## Dependencies

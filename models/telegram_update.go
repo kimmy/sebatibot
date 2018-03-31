@@ -2,8 +2,8 @@ package models
 
 import "github.com/jinzhu/gorm"
 
-// User is a real world user
-type User struct {
+// Change this to Telegram's update json
+type TelegramUpdate struct {
 	gorm.Model
 	Age       uint   `json:"age",gorm:"column:age;"`
 	FirstName string `json:"first_name",gorm:"column:first_name;type:varchar(200):primary_key"`
@@ -11,4 +11,4 @@ type User struct {
 }
 
 // Users is a collection of multiple users
-type Users []User
+type TelegramUpdates []TelegramUpdate

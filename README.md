@@ -88,7 +88,7 @@ Run main.go and send a message to Sebatibot on Telegram.
 Special thanks to our reference [boilerplate](https://github.com/sjoshi6/go-rest-api-boilerplate).
 
 ### How to contribute?
-
+Please read our [CONTRIBUTING.md](https://github.com/kbleabres/sebatibot/blob/master/.github/CONTRIBUTING.md) before contributing.
 
 ### How to deploy?
 

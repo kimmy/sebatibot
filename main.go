@@ -48,8 +48,8 @@ func main() {
 
 	updates := bot.ListenForWebhook("/" + telegramToken)
 
-	log.Debugf("Listening at 127.0.0.1:3000 for Telegram updates. . .")
-	go http.ListenAndServe("127.0.0.1:3000", app)
+	log.Debugf("Listening at 0.0.0.0:3000 for Telegram updates. . .")
+	go http.ListenAndServe("0.0.0.0:3000", app)
 
 	for update := range updates {
 		log.Debugf("%+v\n", update)

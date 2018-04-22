@@ -32,28 +32,22 @@ func main() {
 	}
 
 	bot.Debug = true
-	log.Debugf("Authorized on account %s", bot.Self.UserName)
+	log.Info("Authorized on account: ", bot.Self.UserName)
 
 	// ngrok for local development
 	// Run ngrok on your local and change webhookUrl by the generated one
 	// Consult README.md for more details
 
 	// webhookUrl := "https://{production_api_endpoint}/" + os.Getenv("TOKEN")
-	webhookUrl := "https://38e44fc0.ngrok.io/" + telegramToken
+	webhookUrl := "https://a7685903.ngrok.io/" + bot.Token
 
 	_, err = bot.SetWebhook(tgbotapi.NewWebhook(webhookUrl))
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	updates := bot.ListenForWebhook("/" + telegramToken)
-
-	log.Debugf("Listening at 0.0.0.0:3000 for Telegram updates. . .")
-	go http.ListenAndServe("0.0.0.0:3000", app)
-
-	for update := range updates {
-		log.Debugf("%+v\n", update)
-	}
+	log.Info("Listening at 127.0.0.1:3000 for Telegram updates. . .")
+	log.Fatal(http.ListenAndServe("127.0.0.1:3000", app))
 }
 
 func addRoutes(app *mux.Router, routes routes.Routes, prefix string) {

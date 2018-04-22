@@ -15,9 +15,11 @@ func GetLogger() *logrus.Logger {
 	if logger == nil {
 		logger = logrus.New()
 		var ENV = defaults.String(os.Getenv("GO_EUN_ENV"), "development")
-
 		logger.Out = os.Stdout
-		logger.Formatter = &logrus.TextFormatter{}
+
+		customFormatter := new(logrus.JSONFormatter)
+		customFormatter.TimestampFormat = "2006-01-02 15:04:05"
+		logger.Formatter = customFormatter
 
 		if ENV == "development" {
 			logger.Level = logrus.DebugLevel

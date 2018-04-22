@@ -2,50 +2,30 @@ package controllers
 
 import (
 	"net/http"
-	"io/ioutil"
 	"fmt"
-	"os"
-	"encoding/json"
+	"time"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/go-telegram-bot-api/telegram-bot-api"
+	"github.com/yanzay/tbot"
 
 	"sebatibot/logger"
-	"sebatibot/models"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Welcome!\n")
 }
 
-func TelegramUpdate(w http.ResponseWriter, r *http.Request) {
+func HiHandler(message *tbot.Message) {
 	log := logger.GetLogger()
 
-	var telegramUpdate models.TelegramUpdate
-	bodyBytes, _ := ioutil.ReadAll(r.Body)
-	if err := json.Unmarshal(bodyBytes, &telegramUpdate); err != nil {
-		log.Fatal(err)
-	}
-
 	log.WithFields(logrus.Fields{
-		"telegram_update": telegramUpdate,
-	}).Info("Telegram Update Webhook")
+		"telegram_update": message.Text(),
+	}).Info("HiHandler")
 
-	telegramToken := os.Getenv("TOKEN")
-	bot, err := tgbotapi.NewBotAPI(telegramToken)
-	if err != nil {
-		log.Fatal("Error initializing tgbotapi")
-	}
-
-	// Uncomment this if you want to see additional logging from `tgbotapi` library
-	// bot.Debug = true
-	// log.Info("Authorized on account %s", bot.Self.UserName)
-
-	msg := tgbotapi.NewMessage(telegramUpdate.Message.Chat.Id, "This is a sample reply.")
-	// Uncoment this if you want to send a message as a `reply`
-	// msg.ReplyToMessageID = telegramUpdate.Message.MessageId
-
-	bot.Send(msg)
-
-	w.WriteHeader(http.StatusOK)
+	// Handler can reply with several messages
+	// Check model for possible fields:
+	// https://github.com/yanzay/tbot/blob/4cc12770de420a77015159bb66f8a7173a2e4c1b/model/message.go
+	message.Replyf("Hello %s", message.From.FirstName)
+	time.Sleep(1 * time.Second)
+	message.Reply("What's up?")
 }

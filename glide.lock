@@ -1,36 +1,31 @@
-hash: b69b855733ac6794352c0c0a2bcea1e9ff33e24d78ae100bbbd515d45fe2aec3
-updated: 2018-03-03T19:58:24.274376418+08:00
+hash: b97b93ffa6ea6401bb417bd9d46abf2053783a1f48358d394749d52b2c485d7f
+updated: 2018-04-22T18:42:42.433990206+09:00
 imports:
 - name: github.com/go-telegram-bot-api/telegram-bot-api
-  version: 2022d04b94f50056a09962b1ac81cdd821d20a55
+  version: 0e0af0c480ea98e982d5f4d45fb39577c6ab1e3e
 - name: github.com/gorilla/context
   version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
 - name: github.com/gorilla/mux
   version: 392c28fe23e1c45ddba891b0320b3b5df220beea
-- name: github.com/jinzhu/gorm
-  version: 5174cc5c242a728b435ea2be8a2f7f998e15429b
-- name: github.com/jinzhu/inflection
-  version: 1c35d901db3da928c72a72d8458480cc9ade058f
 - name: github.com/joho/godotenv
   version: a79fa1e548e2c689c241d10173efd51e5d689d5b
 - name: github.com/markbates/going
   version: 0576708c56cea02331f864fe6e157ac7841923e4
   subpackages:
   - defaults
-- name: github.com/rs/cors
-  version: a62a804a8a009876ca59105f7899938a1349f4b3
-- name: github.com/rs/xhandler
-  version: d9d9599b6aaf6a058cb7b1f48291ded2cbd13390
 - name: github.com/Sirupsen/logrus
   version: ba1b36c82c5e05c4f912a88eab0dcd91a171688f
 - name: github.com/technoweenie/multipartstreamer
   version: a90a01d73ae432e2611d178c18367fbaa13e0154
 - name: github.com/urfave/negroni
   version: fde5e16d32adc7ad637e9cd9ad21d4ebc6192535
-- name: golang.org/x/net
-  version: e90d6d0afc4c315a0d87a568ae68577cc15149a0
+- name: github.com/yanzay/log
+  version: 87352bb235060cca8427c8f9fdd68c83b38ba461
+- name: github.com/yanzay/tbot
+  version: 7881ddab5b13cfb8921188bc01a770193c0ffaca
   subpackages:
-  - context
+  - internal/adapter
+  - model
 - name: golang.org/x/sys
   version: 8d1157a435470616f975ff9bb013bea8d0962067
   subpackages:

@@ -2,7 +2,5 @@ package: sebatibot
 import:
 - package: github.com/urfave/negroni
   version: v0.2.0
-- package: github.com/jinzhu/gorm
-  version: v1.0
-- package: github.com/go-telegram-bot-api/telegram-bot-api
-  version: ^4.6.1
+- package: github.com/yanzay/tbot
+  version: ^0.4.0

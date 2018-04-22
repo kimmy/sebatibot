@@ -1,21 +1,18 @@
 package main
 
 import (
-	"net/http"
 	"os"
 
-	"github.com/go-telegram-bot-api/telegram-bot-api"
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
+	"github.com/yanzay/tbot"
 
 	"sebatibot/logger"
 	"sebatibot/routes"
+	"sebatibot/controllers"
 )
 
 func main() {
-
-	app := mux.NewRouter()
-	addRoutes(app, routes.UsersRoutes, "/")
 	log := logger.GetLogger()
 
 	err := godotenv.Load()
@@ -26,28 +23,25 @@ func main() {
 	telegramToken := os.Getenv("TOKEN")
 	log.Debugf("TOKEN: %s", telegramToken)
 
-	bot, err := tgbotapi.NewBotAPI(telegramToken)
-	if err != nil {
-		log.Fatal("Error initializing tgbotapi")
-	}
-
-	bot.Debug = true
-	log.Info("Authorized on account: ", bot.Self.UserName)
-
-	// ngrok for local development
-	// Run ngrok on your local and change webhookUrl by the generated one
-	// Consult README.md for more details
-
-	// webhookUrl := "https://{production_api_endpoint}/" + os.Getenv("TOKEN")
-	webhookUrl := "https://a7685903.ngrok.io/" + bot.Token
-
-	_, err = bot.SetWebhook(tgbotapi.NewWebhook(webhookUrl))
+	// Create new telegram bot server using token
+	bot, err := tbot.NewServer(telegramToken)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	log.Info("Listening at 127.0.0.1:3000 for Telegram updates. . .")
-	log.Fatal(http.ListenAndServe("127.0.0.1:3000", app))
+	// Handle with HiHandler function
+	// Check library for other possible stuff: https://github.com/yanzay/tbot
+	bot.HandleFunc("/hi", controllers.HiHandler)
+
+	// You can also do this directly
+	bot.Handle("hi", "test")
+
+	log.Info("Telegram bot starting. . .")
+	// Start listening for messages
+	err = bot.ListenAndServe()
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func addRoutes(app *mux.Router, routes routes.Routes, prefix string) {

@@ -1,14 +1,27 @@
 package models
 
-import "github.com/jinzhu/gorm"
-
-// Change this to Telegram's update json
 type TelegramUpdate struct {
-	gorm.Model
-	Age       uint   `json:"age",gorm:"column:age;"`
-	FirstName string `json:"first_name",gorm:"column:first_name;type:varchar(200):primary_key"`
-	LastName  string `json:"last_name",gorm:"column:last_name;type:varchar(200):not null"`
+    UpdateId  int64   `json:"update_id"`
+    Message   Message `json:"message"`
 }
 
-// Users is a collection of multiple users
-type TelegramUpdates []TelegramUpdate
+type Message struct {
+    MessageId int  `json:"message_id"`
+    Text      string `json:"text"`
+    Chat      Chat   `json:"chat"`
+    From      From   `json:"from"`
+}
+
+type Chat struct {
+    Id    int64  `json:"id"`
+    Title string `json:"title"`
+    Type  string `json:"supergroup"`
+}
+
+type From struct {
+    Id           int64  `json:"id"`
+    FirstName    string `json:"first_name"`
+    LastName     string `json:"last_name"`
+    IsBot        bool   `json:"is_bot"`
+    LanguageCode string `json:"language_code"`
+}

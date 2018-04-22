@@ -6,9 +6,9 @@ import (
 
 	"github.com/go-telegram-bot-api/telegram-bot-api"
 	"github.com/gorilla/mux"
+	"github.com/joho/godotenv"
 
 	"sebatibot/logger"
-	"github.com/joho/godotenv"
 	"sebatibot/routes"
 )
 

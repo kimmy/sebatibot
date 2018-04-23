@@ -94,4 +94,13 @@ Please read our [CONTRIBUTING.md](https://github.com/kbleabres/sebatibot/blob/ma
 
 ## Dependencies
 
+### Notes
+When creating new bot, set privacy setting to `false` through `BotFather` so that bot can get data from a channel.  
 
+Send message to `BotFather`:
+
+```
+/setprivacy
+```
+
+Reference [here](https://stackoverflow.com/questions/38565952/how-to-receive-messages-in-group-chats-using-telegram-bot-api).

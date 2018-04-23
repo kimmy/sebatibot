@@ -23,11 +23,4 @@ var UsersRoutes = Routes{
 		Method:      "GET",
 		HandlerFunc: controllers.Index,
 	},
-	Route{
-		Name:        "TelegramUpdate",
-		// TODO: Store this as ENV variable
-		Pattern:     "/551123175:AAGsVKDZTiQ4Bz4WBHSgP43r7nzATeCAn3U",
-		Method:      "POST",
-		HandlerFunc: controllers.TelegramUpdate,
-	},
 }

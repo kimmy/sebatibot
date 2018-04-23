@@ -30,3 +30,5 @@ logs
 # BIN file
 sebatibot
 ngrok
+
+.env

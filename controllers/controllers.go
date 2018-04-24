@@ -3,29 +3,41 @@ package controllers
 import (
 	"net/http"
 	"fmt"
-	"time"
+	"os"
+	"encoding/json"
+	"io/ioutil"
 
 	"github.com/Sirupsen/logrus"
 	"github.com/yanzay/tbot"
 
 	"sebatibot/logger"
+	"sebatibot/models"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Welcome!\n")
 }
 
-func HiHandler(message *tbot.Message) {
-	log := logger.GetLogger()
+func Updates(w http.ResponseWriter, r *http.Request) {
+	var telegramUpdate models.TelegramUpdate
+	 log := logger.GetLogger()
 
-	log.WithFields(logrus.Fields{
-		"telegram_update": message.Text(),
-	}).Info("HiHandler")
+	// Get TelegramUpdate Params
+	bodyBytes, _ := ioutil.ReadAll(r.Body)
+	if err := json.Unmarshal(bodyBytes, &telegramUpdate); err != nil {
+ 		log.Fatal(err)
+ 	}
 
-	// Handler can reply with several messages
-	// Check model for possible fields:
-	// https://github.com/yanzay/tbot/blob/4cc12770de420a77015159bb66f8a7173a2e4c1b/model/message.go
-	message.Replyf("Hello %s", message.From.FirstName)
-	time.Sleep(1 * time.Second)
-	message.Reply("What's up?")
+ 	log.WithFields(logrus.Fields{
+		"telegram_update": telegramUpdate,
+ 	}).Info("Telegram Update Webhook")
+
+ 	// Initialize bot library
+	bot, _ := tbot.NewServer(os.Getenv("TOKEN"))
+	bot.Send(telegramUpdate.Message.Chat.Id, "Hi there!")
+
+	// With Webhooks, you should do your own message parsing
+  // and create necessary handlers for them.
+  // 
+  // With Polling, library provides it.
 }

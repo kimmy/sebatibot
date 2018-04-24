@@ -23,4 +23,10 @@ var UsersRoutes = Routes{
 		Method:      "GET",
 		HandlerFunc: controllers.Index,
 	},
+	Route{
+		Name:        "Updates",
+		Pattern:     "/updates",
+		Method:      "POST",
+		HandlerFunc: controllers.Updates,
+	},
 }
